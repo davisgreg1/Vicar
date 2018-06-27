@@ -7,10 +7,10 @@ import {
 import {
   createStackNavigator
 } from 'react-navigation';
-import WelcomeScreen from './screens/WelcomeScreen';
-import LoginScreen from './screens/LoginScreen';
-import SignUpScreen from './screens/SignUpScreen';
-import DrawerNavigator from './screens/DrawerNavigator';
+import WelcomeScreen from './Components/WelcomeScreen';
+import LoginScreen from './Components/LoginScreen';
+import SignUpScreen from './Components/SignUpScreen';
+import DrawerNavigator from './Navigations/DrawerNavigator';
 
 const styles = StyleSheet.create({
   container: {
