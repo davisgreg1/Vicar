@@ -1,29 +1,41 @@
 import React from 'react';
-import {StyleSheet, Text, View} from 'react-native';
-import {
-    createDrawerNavigator
-  } from 'react-navigation';
+import {StyleSheet, Text, View, Button} from 'react-native';
+import { HeaderBackButton } from 'react-navigation';
+import Ionicons from 'react-native-vector-icons/Entypo';
 
-  const styles = StyleSheet.create({
+const styles = StyleSheet.create({
     container: {
-      flex: 1,
-      backgroundColor: 'fuchsia',
-      alignItems: 'center',
-      justifyContent: 'center'
+        flex: 1,
+        backgroundColor: 'fuchsia',
+        alignItems: 'center',
+        justifyContent: 'center'
     }
-  });
+});
 
-class More extends React.Component{
-    static navigationOptions = {
-        drawerLabel: "More"
+class More extends React.Component {
+    static navigationOptions = ({navigation}) => {
+        return {
+            headerLeft: <Ionicons name="chevron-thin-left" size={24} onPress={() => navigation.goBack(null)}/>
+            ,
+            title: "More",
+            headerTitleStyle: {
+                alignSelf: 'center',
+                textAlign: 'center'
+            }
+        }
     }
-    
-    render(){
-        return(
+    constructor(props) {
+        super(props)
+    }
+
+    render() {
+        return (
             <View style={styles.container}>
-                <Text>Find Out More Here</Text>
+                <Text style={{
+                    color: "white"
+                }}>More</Text>
             </View>
-        )
+        );
     }
 }
 export default More;

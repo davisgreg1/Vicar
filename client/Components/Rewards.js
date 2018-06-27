@@ -1,28 +1,41 @@
 import React from 'react';
-import {StyleSheet, Text, View} from 'react-native';
-import {
-    createDrawerNavigator
-  } from 'react-navigation';
+import {StyleSheet, Text, View, Button} from 'react-native';
+import { HeaderBackButton } from 'react-navigation';
+import Ionicons from 'react-native-vector-icons/Entypo';
 
-  const styles = StyleSheet.create({
+const styles = StyleSheet.create({
     container: {
-      flex: 1,
-      backgroundColor: 'green',
-      alignItems: 'center',
-      justifyContent: 'center'
+        flex: 1,
+        backgroundColor: 'green',
+        alignItems: 'center',
+        justifyContent: 'center'
     }
-  });
+});
 
-class Rewards extends React.Component{
-    static navigationOptions = {
-        drawerLabel: "Redeem Rewards"
+class Rewards extends React.Component {
+    static navigationOptions = ({navigation}) => {
+        return {
+            headerLeft: <Ionicons name="chevron-thin-left" size={24} onPress={() => navigation.goBack(null)}/>
+            ,
+            title: "Redeem Rewards",
+            headerTitleStyle: {
+                alignSelf: 'center',
+                textAlign: 'center'
+            }
+        }
     }
-    render(){
-        return(
+    constructor(props) {
+        super(props)
+    }
+
+    render() {
+        return (
             <View style={styles.container}>
-                <Text>Redeem Rewards Here</Text>
+                <Text style={{
+                    color: "white"
+                }}>Rewards</Text>
             </View>
-        )
+        );
     }
 }
 export default Rewards;

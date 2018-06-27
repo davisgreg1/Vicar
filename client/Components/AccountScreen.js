@@ -38,7 +38,7 @@ class AccountScreen extends React.Component {
             <View style={styles.container}>
                 <Text style={{
                     color: "white"
-                }}>Account Screen Here</Text>
+                }}>My Profile</Text>
             </View>
         );
     }

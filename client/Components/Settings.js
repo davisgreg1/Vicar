@@ -1,28 +1,41 @@
 import React from 'react';
-import {StyleSheet, Text, View} from 'react-native';
-import {
-    createDrawerNavigator
-  } from 'react-navigation';
+import {StyleSheet, Text, View, Button} from 'react-native';
+import { HeaderBackButton } from 'react-navigation';
+import Ionicons from 'react-native-vector-icons/Entypo';
 
-  const styles = StyleSheet.create({
+const styles = StyleSheet.create({
     container: {
-      flex: 1,
-      backgroundColor: 'gray',
-      alignItems: 'center',
-      justifyContent: 'center'
+        flex: 1,
+        backgroundColor: 'gray',
+        alignItems: 'center',
+        justifyContent: 'center'
     }
-  });
+});
 
-class Settings extends React.Component{
-    static navigationOptions = {
-        drawerLabel: "Settings"
+class Settings extends React.Component {
+    static navigationOptions = ({navigation}) => {
+        return {
+            headerLeft: <Ionicons name="chevron-thin-left" size={24} onPress={() => navigation.goBack(null)}/>
+            ,
+            title: "Settings",
+            headerTitleStyle: {
+                alignSelf: 'center',
+                textAlign: 'center'
+            }
+        }
     }
-    render(){
-        return(
+    constructor(props) {
+        super(props)
+    }
+
+    render() {
+        return (
             <View style={styles.container}>
-                <Text>Settings</Text>
+                <Text style={{
+                    color: "black"
+                }}>Settings</Text>
             </View>
-        )
+        );
     }
 }
 export default Settings;

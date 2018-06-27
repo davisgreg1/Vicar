@@ -27,47 +27,56 @@ const styles = StyleSheet.create({
   }
 });
 
-const innerStackNavigator = new createStackNavigator({
-  TabNavigator: {
-    screen: HomeScreenTabNavigator
-  }
-}, 
-// {
-//   navigatorStyle: {
-//     disabledBackGesture: true,
-//   }
-// }
-)
+
 const accountStackNavigator = new createStackNavigator({
-  TabNavigator2: {
+  AccountStackNav: {
     screen: AccountScreen
-  }
-}, 
-// {
-//   navigatorStyle: {
-//     disabledBackGesture: true,
-//   }
-// }
-)
+  },
+});
+const bookingsStackNavigator = new createStackNavigator({
+   BookingsStackNav: {
+    screen: Bookings
+  },
+})
+const rewardsStackNavigator = new createStackNavigator({
+   RewardsStackNav: {
+    screen: Rewards,
+  },
+})
+const helpStackNavigator = new createStackNavigator({
+   HelpStackNav: {
+    screen: Help
+  },
+})
+const settingsStackNavigator = new createStackNavigator({
+   SettingsStackNav: {
+    screen: Settings
+  },
+})
+const moreStackNavigator = new createStackNavigator({
+   MoreStackNav: {
+    screen: More
+  },
+})
 
 const AppDrawerNavigator = new createDrawerNavigator({
   Account: {
     screen: accountStackNavigator
   },
   Bookings: {
-    screen: Bookings
+    screen: bookingsStackNavigator
   },
-  RedeemRewards: {
-    screen: Rewards
+  Rewards: {
+    screen: rewardsStackNavigator
   },
   Help: {
-    screen: Help
+    screen: helpStackNavigator
   },
   Settings: {
-    screen: Settings
+    screen: settingsStackNavigator
   },
   More: {
-    screen: More
+    screen: moreStackNavigator
   }
 })
 
