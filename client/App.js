@@ -1,23 +1,48 @@
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
-
-export default class App extends React.Component {
-  render() {
-    return (
-      <View style={styles.container}>
-        <Text>Open up App.js to start working on your app!</Text>
-        <Text>Changes you make will automatically reload.</Text>
-        <Text>Shake your phone to open the developer menu.</Text>
-      </View>
-    );
-  }
-}
+import {
+  StyleSheet,
+  Text,
+  View
+} from 'react-native';
+import {
+  createStackNavigator
+} from 'react-navigation';
+import WelcomeScreen from './screens/WelcomeScreen';
+import LoginScreen from './screens/LoginScreen';
+import SignUpScreen from './screens/SignUpScreen';
+import DrawerNavigator from './screens/DrawerNavigator';
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
+    backgroundColor: 'purple',
     alignItems: 'center',
-    justifyContent: 'center',
-  },
+    justifyContent: 'center'
+  }
 });
+
+export default class App extends React.Component {
+  render() {
+    return ( <
+      AppStackNavigator / >
+    );
+  }
+}
+const AppStackNavigator = new createStackNavigator({
+    WelcomeScreen: {
+      screen: WelcomeScreen
+    },
+    LoginScreen: {
+      screen: LoginScreen
+    },
+    SignUpScreen: {
+      screen: SignUpScreen
+    },
+    DrawerNavigator: {
+      screen: DrawerNavigator,
+      navigationOptions: {
+        header: null,
+      }
+    },
+  },
+)
